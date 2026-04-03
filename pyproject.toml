@@ -1,0 +1,58 @@
+# ==============================================================================
+# Project Configuration — Python package metadata and dependencies.
+#
+# This project uses uv as the package manager and setuptools as the build backend.
+# All dependencies are pinned to minimum versions for reproducibility.
+#
+# Key dependencies:
+#   polars      — DataFrame library (Rust-powered, faster than pandas for our workload).
+#   pydantic    — Data validation (ensures Spotify API/export data matches expectations).
+#   httpx       — HTTP client for Spotify API calls (modern alternative to requests).
+#   azure-*     — Azure SDK for Blob Storage, Identity, and Key Vault.
+#   adlfs/fsspec — Filesystem abstraction for reading Azure blobs as files.
+#   typer       — CLI framework (auto-generates --help and argument parsing).
+#   tenacity    — Retry logic with exponential backoff for API calls.
+#
+# Dev dependencies (not installed in production):
+#   pytest, ruff, black, mypy — Testing, linting, formatting, type checking.
+# ==============================================================================
+
+[project]
+name = "spotify-data-lakehouse"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "adlfs>=2026.2.0",
+    "azure-identity>=1.25.2",
+    "azure-keyvault-secrets>=4.10.0",
+    "azure-storage-blob>=12.28.0",
+    "fsspec>=2026.2.0",
+    "httpx>=0.28.1",
+    "polars>=1.38.1",
+    "pyarrow>=23.0.1",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.13.1",
+    "tenacity>=9.1.4",
+    "typer>=0.24.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.3.0",
+    "jupyterlab>=4.5.6",
+    "matplotlib>=3.9.0",
+    "mypy>=1.19.1",
+    "plotly>=5.24.0",
+    "pytest>=9.0.2",
+    "ruff>=0.15.5",
+    "seaborn>=0.13.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 88

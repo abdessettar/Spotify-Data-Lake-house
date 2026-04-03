@@ -1,0 +1,41 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/*
+.ruff_cache/
+*mypy_cache/
+.pytest_cache/
+.coverage
+
+# Virtual environments
+.venv
+
+# Environment variables
+.env
+
+# data: ignored because it is huge due to the dumps and it caontains personal listening data
+data
+
+# Scheduler logs
+logs/
+
+# Mac
+.DS_Store
+
+# Terraform
+.terraform/
+*.tfstate*
+*.tfstate.backup
+*.tfvars*
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+crash.log
+crash.*.log
