@@ -39,3 +39,6 @@ override.tf.json
 .terraform.lock.hcl
 crash.log
 crash.*.log
+
+# Blog post
+blog_post.md
